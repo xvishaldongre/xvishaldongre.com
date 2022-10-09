@@ -1,11 +1,11 @@
 # Todo
-- Port Homepage to Astro
+- x Port Homepage to Astro
   - x Navigation
   - x Posts
   - x Popular
-  - Side Projects
-  - Footer
-  - Theme
+  - x Side Projects
+  - x Footer
+  - x Theme
 - Port Writings to Astro
 - Port Projects to Astro
-- 
+- Port About me to Astro

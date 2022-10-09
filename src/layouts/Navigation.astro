@@ -1,0 +1,58 @@
+---
+    import cube from "../assets/cube.svg";
+    import blog from "../assets/nav-blog.png";
+    import github from "../assets/nav-github.png";
+    import projects from "../assets/nav-projects.png";
+    import ExternalLinkIcon from "../assets/external-link-icon.svg";
+    import { slugify } from "../utils/helper";
+    import { setTheme } from "../utils/setTheme";
+    import ThemeChanger from "../components/ThemeChanger.svelte";
+
+    const logoPath = "/favicon.svg";
+    const name = "Vishal Dongre";
+
+    const mainNavItems = [
+        { url: "/me", icon: cube, label: "About me" },
+        { url: "/blog", icon: blog, label: "Writing" },
+        { url: "/projects", icon: projects, label: "Projects" },
+    ];
+
+    const socialNavItems = [
+        {
+            url: "https://github.com/xvishaldongre",
+            icon: github,
+            label: "GitHub",
+        },
+    ];
+---
+
+<section class="navigation">
+    <div class="container">
+        <nav>
+            <a href="/" class="item brand">
+                <img src={logoPath} alt={name} class="logo" />
+                <span>{name}</span>
+            </a>
+            {mainNavItems.map(item=>
+            <div class="nav-item-outer">
+                <img src={item.icon} alt={item.label} class="nav-image" />
+                <a href={item.url} id={item.label} class={`item ${slugify(item.label)}`}>
+                    <span>{item.label}</span>
+                </a>
+            </div>
+            )}
+
+            {socialNavItems.map(item=>
+            <div class="nav-item-outer">
+                <img src={item.icon} alt={item.label} class="nav-image" />
+                <a href={item.url} id={item.label} class={`deskhrefp-only item ${slugify(item.label)}`} target="_blank"
+                    rel="noreferrer">
+                    <span>{item.label}</span>
+                    <img src={ExternalLinkIcon} width="16px" height="16px" alt="Check out My Github" />
+                </a>
+            </div>
+            )}
+        </nav>
+        <ThemeChanger client:load />
+    </div>
+</section>

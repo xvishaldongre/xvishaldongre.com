@@ -1,6 +1,5 @@
 ---
-	import Layout from '../layouts/Layout.svelte';
-	import Card from '../components/Card.astro';
+	import Layout from '../layouts/Layout.astro';
 	import Hero from '../components/Hero.astro';
 	import Heading from '../components/Heading.astro';
 	import { slugify } from "../utils/helper"
@@ -9,8 +8,6 @@
 ---
 
 <Layout>
-
-	<title slot="title">Vishal</title>
 	<div class="container">
 		<div class="hero-wrapper">
 			<Hero title="Hey, I'm Vishal!">
