@@ -6,6 +6,7 @@
   - x Side Projects
   - x Footer
   - x Theme
+  - x Fix links (URLs)
+- Port About me to Astro
 - Port Writings to Astro
 - Port Projects to Astro
-- Port About me to Astro

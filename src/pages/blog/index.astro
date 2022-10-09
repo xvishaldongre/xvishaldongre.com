@@ -1,0 +1,23 @@
+---
+    import Layout from '../../layouts/Layout.astro';
+    import Hero from '../../components/Hero.astro';
+    import Heading from '../../components/Heading.astro';
+    import Posts from "../../components/Posts.astro"
+    import { slugify } from "../../utils/helper"
+---
+
+<Layout>
+    <div>
+        <section class="container markdown-content">
+            <div class="grid">
+                <div class="article-content">
+                    <Hero title="Writing" />
+                    <Posts />
+                </div>
+                <div class="sidebar-content">
+
+                </div>
+            </div>
+        </section>
+    </div>
+</Layout>

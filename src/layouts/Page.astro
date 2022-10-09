@@ -1,0 +1,31 @@
+---
+    import Layout from '../layouts/Layout.astro';
+    import Hero from '../components/Hero.astro';
+    import PostSidebar from '../components/PostSidebar.astro';
+    import Post from '../components/Post.astro';
+    const { frontmatter, compiledContent } = Astro.props;
+    const { title, date, categories, tags } = frontmatter
+
+    const postHTML = compiledContent
+    console.log(Astro.props)
+---
+
+<Layout title={title}>
+    <div>
+        <div class="container">
+            <div class="grid">
+                <div class="article-content">
+                    <div class="hero">
+                        <h1>{title}</h1>
+                    </div>
+                    <section class="segment small">
+                        <div class="post-content">
+                            <slot />
+                        </div>
+                    </section>
+                </div>
+                <PostSidebar date={date} categories={categories} tags={tags} />
+            </div>
+        </div>
+    </div>
+</Layout>

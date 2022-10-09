@@ -1,0 +1,81 @@
+---
+    import { slugify } from '../utils/helper'
+    import me from "../assets/me.jpeg"
+    const {
+        tags = ["Hello", "Vishal"],
+        date,
+        categories = [],
+        thumbnail,
+    } = Astro.props;
+    const category = categories?.filter((category) => category !== 'Highlight')
+    console.log(tags)
+---
+
+<aside class="post-sidebar">
+    {thumbnail && (
+    <div class="post-image">
+        <img src={thumbnail.childImageSharp?.fixed} />
+    </div>
+    )}
+    <div class="post-sidebar-card">
+        <h2>About me</h2>
+        <img src={me} alt="Vishal" class="sidebar-avatar" />
+        <p>
+            Hello and thanks for visiting! My name is{' '}
+            <a href="/me">Vishal Dongre</a>, and this is my website and digital
+            garden. 🌱
+        </p>
+        <p>
+            I'm a software developer who loves solving problems and writing about tech and life.
+        </p>
+    </div>
+    <div class="post-sidebar-card">
+        <h2>Details</h2>
+        <ul>
+            <li>Published {date}</li>
+        </ul>
+
+        {categories &&
+        <div>
+            <h2>Category</h2>
+            <ul>
+
+                {categories
+                .filter((cat) => cat !== 'Highlight')
+                .map((cat) =>{
+                return (
+                <>
+                    <li>
+                        <a href={` /categories/${slugify(cat)}`} id={slugify(cat)}>{cat}</a>
+                        {" "}
+                    </li>
+                </>
+                )
+                })}
+
+            </ul>
+        </div>
+        }
+
+        {tags &&
+        <h2>Tags</h2>
+        <div class="tags">
+            <ul>
+                <li>
+                    {tags
+                    .map((tag) =>{
+                    return (
+                    <>
+                        <a class="tag" href={`/categories/${slugify(tag)}`} id={slugify(tag)}>{tag}</a>
+                        {" "}
+                    </>
+                    )
+                    })}
+                </li>
+            </ul>
+        </div>
+        }
+    </div>
+</aside>
+
+<!-- ${slugify(category)} -->

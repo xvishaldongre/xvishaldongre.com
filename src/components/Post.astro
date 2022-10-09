@@ -1,0 +1,9 @@
+---
+    const { post, prefix } = Astro.props;
+    const formattedDate = post.frontmatter.date.split(' ').slice(0, -1).join(' ')
+---
+
+<a href={prefix ? `${prefix}${post.url}` : post.frontmatter.url} class="post">
+    <h3>{post.frontmatter.title}</h3>
+    <time>{formattedDate}</time>
+</a>

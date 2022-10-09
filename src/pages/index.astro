@@ -31,18 +31,18 @@
 			<Heading title="Latest Posts" url="/blog" />
 			<div class="post-preview">
 				{posts.slice(0, 6).map(post =>
-
 				<div class="anchored card" id={post.frontmatter.title}>
 					<time>{post.frontmatter.date}</time>
-					<a href={post.frontmatter.url} class="card-header">{post.frontmatter.title}</a>
+					<a href={post.url} class="card-header">{post.frontmatter.title}</a>
 					<div class="anchored categories">
 						{post.frontmatter.categories
 						.filter((cat) => cat !== 'Highlight')
-						.map((cat) => {
+						.map((cat) =>{
 						return (
-						<a class="cat" href={`/categories/${slugify(cat)}`} id={slugify(cat)}>
-							{cat}
-						</a>
+						<>
+							<a class="cat" href={`/categories/${slugify(cat)}`} id={slugify(cat)}>{cat}</a>
+							{" "}
+						</>
 						)
 						})}
 					</div>
@@ -56,11 +56,11 @@
 				{posts
 				.filter(post=>post.frontmatter.highlight)
 				.map((post)=>
-				<div class="muted card flex" id={`popular-${post.frontmatter.url}`}>
+				<div class="muted card flex" id={`popular-${post.url}`}>
 					{post.frontmatter.thumbnail && <img src={post.frontmatter.thumbnail} />}
 					<div>
 						<time>{post.frontmatter.date}</time>
-						<a class="card-header" href={post.frontmatter.url}>
+						<a class="card-header" href={post.url}>
 							{post.frontmatter.title}
 						</a>
 					</div>
@@ -99,5 +99,6 @@
 				)
 				})}
 			</div>
-		</section </div>
+		</section>
+	</div>
 </Layout>

@@ -1,0 +1,44 @@
+---
+    import Post from "./Post.astro"
+    const {
+        data = [],
+        showYears = true,
+        query,
+        prefix,
+        hideDate,
+        yearOnly,
+    } = Astro.props;
+
+    const posts = await Astro.glob('../pages/blog/*.mdx');
+
+    const postsByYear = {}
+
+    posts.forEach((post) => {
+        const year = post.frontmatter.date?.split(" ")[2]
+        postsByYear[year] = [...(postsByYear[year] || []), post]
+    })
+
+    const years = Object.keys(postsByYear).reverse()
+    console.log(years)
+
+---
+
+{showYears && years.map((year) => (
+<section id={year} class="segment">
+    <h2 class="year">{year}</h2>
+    <div class="posts">
+        {postsByYear[year].map((post) => (
+        <Post id={post.id} post={post} prefix={prefix} />
+        ))}
+    </div>
+</section>
+))}
+{!showYears &&
+<section class="segment">
+    <div class="posts">
+        {data.map((post) => (
+        <Post id={post.id} post={post} prefix={prefix} />
+        ))}
+    </div>
+</section>
+}
