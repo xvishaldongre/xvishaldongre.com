@@ -1,0 +1,14 @@
+---
+    const { highlight, subTitle, title, children, index } = Astro.props
+---
+
+<header class={`hero ${index ? 'index' : '' }`}>
+    {subTitle && (
+    <div class="sub-title">
+        {highlight && <span class="highlight">{highlight}</span>}
+        {subTitle}
+    </div>
+    )}
+    {title && <h1>{title}</h1>}
+    <slot />
+</header>

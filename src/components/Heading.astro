@@ -1,0 +1,15 @@
+---
+    const { title, description, url } = Astro.props;
+---
+
+<h2 class="home-heading">
+    <div>
+        <div class="title">{title}</div>
+        {description && <div class="description">{description}</div>}
+    </div>
+    {url && (
+    <a class="button" href={url}>
+        View all
+    </a>
+    )}
+</h2>
