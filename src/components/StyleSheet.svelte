@@ -1,11 +1,14 @@
 <script>
-    import { setTheme } from "../utils/setTheme";
+	import { setTheme } from "../utils/setTheme";
 </script>
 
-{#if $setTheme === "dark"}
-    <link rel="stylesheet" href="src/styles/dark-mode.css" />
-    <link rel="stylesheet" href="src/styles/new-moon.css" />
-{:else}
-    <link rel="stylesheet" href="src/styles/style.css" />
-    <link rel="stylesheet" href="src/styles/new-moon.css" />
-{/if}
+<svelte:head>
+	<link rel="stylesheet" href="/src/styles/theme.css" />
+	<link rel="stylesheet" href="/src/styles/new-moon.css" />
+	<link rel="stylesheet" href="/src/styles/cube.css" />
+	{#if $setTheme === "dark"}
+		<link rel="stylesheet" href="/src/styles/dark-mode.css" />
+	{:else}
+		<link rel="stylesheet" href="/src/styles/style.css" />
+	{/if}
+</svelte:head>
