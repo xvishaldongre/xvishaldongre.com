@@ -4,39 +4,58 @@ title: "First Post"
 author: "Vishal Dongre"
 date: "09 Aug 2022"
 highlight: true
-categories: ["Web","DevOps"]
+categories: ["Web", "DevOps"]
+ssr: false
 ---
+
+import CodeSnippet from "../../components/CodeSnippet/CodeSnippet.astro";
 
 I have to set up a MacBook Pro fairly often - when starting a new job and when buying a new personal computer. I created this article back in 2015 when I got my first Mac and have been updating it ever since with whatever I need as my job evolves. I'm primarily a full-stack web developer, so most of my needs will revolve around JavaScript/Node.js.
 
 # Getting Started
+
 The setup assistant will launch once you turn the computer on. Enter your language, time zone, Apple ID, and so on. The first thing you should do is update macOS to get the latest security updates and patches.
 
-- Install apps via Homebrew
-- Shell setup with zsh
-- Set up Node via nvm
-- Set up git config
-- Set up SSH keys and config
-- macOS settings
-- Application settings
+-   Install apps via Homebrew
+-   Shell setup with zsh
+-   Set up Node via nvm
+-   Set up git config
+-   Set up SSH keys and config
+-   macOS settings
+-   Application settings
 
 ## Homebrew
-Install the Homebrew package manager. This will allow you to install almost any app from the command line.
-```shell
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-```
 
-Make sure everything is up to date.
-`brew update`
+Install the Homebrew package manager. This will allow you to install almost any app from the command line.
+
+
+
+<CodeSnippet lang="shell" title="">
+```shell
+# create a new project with yarn 
+yarn create astro
+```
+</CodeSnippet>
+
+
+<CodeSnippet lang="shell" title="utils.py" removedLineCount="{2}" removedLineIndex="/(?<!p)react\\(\\)/">
+```python
+def add(a, b):
+    return a + b
+```
+</CodeSnippet>
+
+Make sure everything is up to date. `brew update`
 
 ## Installed Apps
-Here are a few shell programs I always use:
-| Shell Program | Purpose           |
-| ------------- | ----------------- |
-| git           | Version Control   |
-| exa           | `ls` aleternative |
 
-```
+Here are a few shell programs I always use:
+| Shell Program | Purpose |
+| ------------- | ----------------- |
+| git | Version Control |
+| exa | `ls` aleternative |
+
+```shell
 ## Shell Programs
 brew install \
   git \

@@ -1,34 +1,32 @@
 ---
-	import newmoon from "../styles/new-moon.css";
-	import lightMode from "../styles/style.css";
-	import darkMode from "../styles/dark-mode.css";
-	import faviconPath from "/favicon.svg";
+import newmoon from "../styles/new-moon.css";
+import lightMode from "../styles/style.css";
+import darkMode from "../styles/dark-mode.css";
+import faviconPath from "/favicon.svg";
 
-	import Navigation from "./Navigation.astro";
-	import StyleSheet from "../components/StyleSheet.svelte"
-	import Footer from "./Footer.astro"
-	const { title } = Astro.props;
+import Navigation from "./Navigation.astro";
+import StyleSheet from "../components/StyleSheet.svelte";
+import Footer from "./Footer.astro";
+const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width" />
-	<link rel="icon" type="image/svg+xml" href={faviconPath} />
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href={faviconPath} />
+		<title>{title}</title>
+	</head>
 	<StyleSheet client:load />
-	<title>{title}</title>
-</head>
 
-<body>
-	<div id="layout" class="layout">
-		<Navigation />
-		<main>
-			<slot />
-		</main>
-		<Footer />
-	</div>
-</body>
-
+	<body>
+		<div id="layout" class="layout">
+			<Navigation />
+			<main>
+				<slot />
+			</main>
+			<Footer />
+		</div>
+	</body>
 </html>

@@ -1,3 +1,3 @@
-import { atom } from 'nanostores';
+import { writable } from 'svelte/store';
 
-export const setTheme = atom("dark");
+export const setTheme = writable("dark");
